@@ -1,0 +1,970 @@
+{
+  "id": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+  "name": "Forge - 2 legged (OSS)",
+  "description": null,
+  "auth": null,
+  "events": null,
+  "variables": null,
+  "order": [
+    "c060c414-90fc-4bb7-aa95-d3778d98d7ae",
+    "5631c6d3-c686-4757-9e51-4bda7706a55c",
+    "0c0f2291-0287-46bd-9c76-fc2ba1274dbb",
+    "2ed63dcd-3ba6-4c2c-8cd4-b91575a1b172",
+    "23c5e86f-7277-4d39-a374-0a66c9f68183",
+    "2ed2d1c7-0d77-40c7-b2d8-2e0ccdbcc403",
+    "612a67da-0e73-4241-9a46-60f87ceda632",
+    "a0094829-04fc-427f-891f-c7966f6c1bc0",
+    "ff4914dd-74da-4c62-8a62-efb2bcb7d26b",
+    "95bd936d-8200-404c-81e1-6f18c28c07c0",
+    "274dc690-98ff-4d95-bfcf-01f2baa50765",
+    "2e8295eb-bc36-4395-b6e1-7a38b9efd89e",
+    "46e55334-ccb1-44e5-9dd7-f97cf07a9f0d",
+    "d288f5b8-50cb-4ba5-b773-4fafc38f3254",
+    "8a3e9653-e82d-4015-b14b-7ee0d54c30f1",
+    "2179919e-d788-4cdc-868e-c85a08e441fe"
+  ],
+  "folders_order": [
+    
+  ],
+  "folders": [
+    
+  ],
+  "requests": [
+    {
+      "id": "0c0f2291-0287-46bd-9c76-fc2ba1274dbb",
+      "name": "Upload File",
+      "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucket/objects/:object",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/octet-stream"
+        }
+      ],
+      "method": "PUT",
+      "pathVariableData": [
+        {
+          "key": "bucket",
+          "value": "{{BucketKey}}"
+        },
+        {
+          "key": "object",
+          "value": "{{ObjectName}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "try {",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    ",
+              "    var objectId = jsonData.objectId;",
+              "    tests[\"objectId=\" + objectId] = true;",
+              "    var urn = btoa(objectId);",
+              "    tests[\"urn=\" + urn] = true;",
+              "    postman.setEnvironmentVariable(\"Urn\", urn);",
+              "    postman.setEnvironmentVariable(\"ObjectName\", jsonData.objectKey);  ",
+              "    tests[\"File upload\"] = true;",
+              "} catch (ex) {",
+              "    tests[\"File upload\"] = false;",
+              "}",
+              ""
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "responses": [
+        {
+          "id": "a43a7dd3-16de-41b0-bb58-73ea530a53d3",
+          "name": "scissors.zip upload",
+          "status": "OK",
+          "mime": "",
+          "language": "javascript",
+          "text": "{\n  \"bucketKey\" : \"adamnagy-prod-postman-key2016-pers3\",\n  \"objectId\" : \"urn:adsk.objects:os.object:adamnagy-prod-postman-key2016-pers3/scissors.zip\",\n  \"objectKey\" : \"scissors.zip\",\n  \"sha1\" : \"c851b53f753a38e6deae94b1d2c271c3c520e0ce\",\n  \"size\" : 1722336,\n  \"contentType\" : \"application/octet-stream\",\n  \"location\" : \"https://developer.api.autodesk.com/oss/v2/buckets/adamnagy-prod-postman-key2016-pers3/objects/scissors.zip\"\n}",
+          "responseCode": {
+            "code": 200,
+            "name": "OK",
+            "detail": ""
+          },
+          "requestObject": {
+            "id": "59db0f59-e832-458b-92ad-b0770db13ccc",
+            "method": "PUT",
+            "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/octet-stream",
+            "dataMode": "raw",
+            "data": [
+              
+            ],
+            "rawModeData": "",
+            "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucket/objects/:object",
+            "pathVariableData": [
+              
+            ],
+            "queryParams": [
+              
+            ],
+            "headerData": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{AccessToken}}",
+                "enabled": true
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/octet-stream",
+                "enabled": true,
+                "description": "The mime type of this content"
+              }
+            ]
+          },
+          "headers": [
+            {
+              "key": "Access-Control-Allow-Credentials",
+              "value": "true",
+              "name": "Access-Control-Allow-Credentials",
+              "description": "Indicates whether or not the response to the request can be exposed when the credentials flag is true. When used as part of a response to a preflight request, this indicates whether or not the actual request can be made using credentials."
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "Session-Id,Content-Length,Accept-Encoding,x-ads-acm-check-groups,Content-Encoding,x-ads-acm-namespace,Content-Type,If-Modified-Since,Range,Accept,x-ads-acm-groups,Content-Range,x-requested-with,Expect,Access-Control-Allow-Credentials,If-None-Match,Access-Control-Allow-Origin,x-csrf-token,x-ads-test,Authorization,If-Match",
+              "name": "Access-Control-Allow-Headers",
+              "description": "Used in response to a preflight request to indicate which HTTP headers can be used when making the actual request."
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "POST,GET,OPTIONS,HEAD,PUT,DELETE,PATCH",
+              "name": "Access-Control-Allow-Methods",
+              "description": "Specifies the method or methods allowed when accessing the resource. This is used in response to a preflight request."
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "chrome-extension://fhbjgbiflinjbdggehcddcbncdddomop",
+              "name": "Access-Control-Allow-Origin",
+              "description": "Specifies a URI that may access the resource. For requests without credentials, the server may specify '*' as a wildcard, thereby allowing any origin to access the resource."
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive",
+              "name": "Connection",
+              "description": "Options that are desired for the connection"
+            },
+            {
+              "key": "Content-Length",
+              "value": "429",
+              "name": "Content-Length",
+              "description": "The length of the response body in octets (8-bit bytes)"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json; charset=utf-8",
+              "name": "Content-Type",
+              "description": "The mime type of this content"
+            },
+            {
+              "key": "Date",
+              "value": "Tue, 27 Sep 2016 00:00:35 GMT",
+              "name": "Date",
+              "description": "The date and time that the message was sent"
+            },
+            {
+              "key": "Server",
+              "value": "Apigee Router",
+              "name": "Server",
+              "description": "A name for the server"
+            }
+          ],
+          "cookies": [
+            
+          ],
+          "request": "0c0f2291-0287-46bd-9c76-fc2ba1274dbb",
+          "collection": "f8fe9f2a-7923-4343-a873-c2e35b652c38"
+        }
+      ],
+      "preRequestScript": null,
+      "tests": "try {\n    var jsonData = JSON.parse(responseBody);\n    \n    var objectId = jsonData.objectId;\n    tests[\"objectId=\" + objectId] = true;\n    var urn = btoa(objectId);\n    tests[\"urn=\" + urn] = true;\n    postman.setEnvironmentVariable(\"Urn\", urn);\n    postman.setEnvironmentVariable(\"ObjectName\", jsonData.objectKey);  \n    tests[\"File upload\"] = true;\n} catch (ex) {\n    tests[\"File upload\"] = false;\n}\n",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "",
+      "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/octet-stream\n",
+      "pathVariables": {
+        "bucket": "{{BucketKey}}",
+        "object": "{{ObjectName}}"
+      }
+    },
+    {
+      "id": "2179919e-d788-4cdc-868e-c85a08e441fe",
+      "name": "Delete File",
+      "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectName",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "DELETE",
+      "pathVariableData": [
+        {
+          "key": "bucketKey",
+          "value": "{{BucketKey}}"
+        },
+        {
+          "key": "objectName",
+          "value": "{{ObjectName}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": null,
+      "folder": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "bucketKey": "{{BucketKey}}",
+        "objectName": "{{ObjectName}}"
+      }
+    },
+    {
+      "id": "23c5e86f-7277-4d39-a374-0a66c9f68183",
+      "name": "Get Details",
+      "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects/:objectKey/details",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "bucketKey",
+          "value": "{{BucketKey}}"
+        },
+        {
+          "key": "objectKey",
+          "value": "{{ObjectName}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Getting file details\"] = responseCode.code == 200;"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "tests[\"Getting file details\"] = responseCode.code == 200;",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "bucketKey": "{{BucketKey}}",
+        "objectKey": "{{ObjectName}}"
+      }
+    },
+    {
+      "id": "274dc690-98ff-4d95-bfcf-01f2baa50765",
+      "name": "Get Metadata",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "postman.setEnvironmentVariable(\"ModelGuid\", jsonData.data.metadata[0].guid);"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "var jsonData = JSON.parse(responseBody);\npostman.setEnvironmentVariable(\"ModelGuid\", jsonData.data.metadata[0].guid);",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}"
+      }
+    },
+    {
+      "id": "2e8295eb-bc36-4395-b6e1-7a38b9efd89e",
+      "name": "Get Hierarchy",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:guid",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        },
+        {
+          "key": "guid",
+          "value": "{{ModelGuid}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": null,
+      "folder": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}",
+        "guid": "{{ModelGuid}}"
+      }
+    },
+    {
+      "id": "2ed2d1c7-0d77-40c7-b2d8-2e0ccdbcc403",
+      "name": "Get Formats",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/formats",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Getting file formats\"] = responseCode.code == 200;"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "tests[\"Getting file formats\"] = responseCode.code == 200;",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": [
+        
+      ]
+    },
+    {
+      "id": "2ed63dcd-3ba6-4c2c-8cd4-b91575a1b172",
+      "name": "Get Files",
+      "url": "https://developer.api.autodesk.com/oss/v2/buckets/:bucketKey/objects",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "bucketKey",
+          "value": "{{BucketKey}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "tests[\"Getting file list\"] = responseCode.code == 200;"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "tests[\"Getting file list\"] = responseCode.code == 200;",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "bucketKey": "{{BucketKey}}"
+      }
+    },
+    {
+      "id": "46e55334-ccb1-44e5-9dd7-f97cf07a9f0d",
+      "name": "Get Properties",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/metadata/:guid/properties",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        },
+        {
+          "key": "guid",
+          "value": "{{ModelGuid}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": null,
+      "folder": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}",
+        "guid": "{{ModelGuid}}"
+      }
+    },
+    {
+      "id": "5631c6d3-c686-4757-9e51-4bda7706a55c",
+      "name": "Create Bucket",
+      "url": "https://developer.api.autodesk.com/oss/v2/buckets",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
+      ],
+      "method": "POST",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "postman.setNextRequest(\"Get Formats\");"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "postman.setNextRequest(\"Get Formats\");",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"bucketKey\": \"{{BucketKey}}\",\n    \"permissions\":[\n    {\n      \"authId\":\"{{ClientId}}\",\n      \"access\":\"full\"\n    }\n  ],\n    \"policyKey\": \"persistent\"\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/json; charset=utf-8\n",
+      "pathVariables": [
+        
+      ]
+    },
+    {
+      "id": "612a67da-0e73-4241-9a46-60f87ceda632",
+      "name": "Post Job svf",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
+      ],
+      "method": "POST",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "if ([200, 201].indexOf(responseCode.code) === -1) {",
+              "    // If the request failed no point testing the other calls",
+              "    tests[\"Could not start translation\"] = false;",
+              "} "
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "if ([200, 201].indexOf(responseCode.code) === -1) {\n    // If the request failed no point testing the other calls\n    tests[\"Could not start translation\"] = false;\n} ",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\": \"{{Urn}}\",\n        \"compressedUrn\": true,\n        \"rootFilename\": \"{{RootFileName}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\": [\"3d\", \"2d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/json; charset=utf-8\n",
+      "pathVariables": [
+        
+      ]
+    },
+    {
+      "id": "8a3e9653-e82d-4015-b14b-7ee0d54c30f1",
+      "name": "Delete Manifest",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/manifest",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "DELETE",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": null,
+      "folder": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}"
+      }
+    },
+    {
+      "id": "95bd936d-8200-404c-81e1-6f18c28c07c0",
+      "name": "Get Manifest",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/manifest",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "var jsonData = JSON.parse(responseBody);",
+              "",
+              "var gotIt = false;",
+              "for (var derId in jsonData.derivatives) {",
+              "    var der = jsonData.derivatives[derId];",
+              "    if (der.objectType === 'step') {",
+              "        gotIt = true;",
+              "    }",
+              "}",
+              "",
+              "if (!gotIt) {",
+              "    postman.setNextRequest(\"GetManifest\");",
+              "}",
+              "",
+              "if (jsonData.status === 'failed') {",
+              "    tests[\"Translation failed\"] = false;",
+              "    console.log('No STEP translation found');",
+              "}"
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "var jsonData = JSON.parse(responseBody);\n\nvar gotIt = false;\nfor (var derId in jsonData.derivatives) {\n    var der = jsonData.derivatives[derId];\n    if (der.objectType === 'step') {\n        gotIt = true;\n    }\n}\n\nif (!gotIt) {\n    postman.setNextRequest(\"GetManifest\");\n}\n\nif (jsonData.status === 'failed') {\n    tests[\"Translation failed\"] = false;\n    console.log('No STEP translation found');\n}",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}"
+      }
+    },
+    {
+      "id": "a0094829-04fc-427f-891f-c7966f6c1bc0",
+      "name": "Post Job step",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
+      ],
+      "method": "POST",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "//tests[\"Response code is 200\"] = responseCode.code;",
+              "",
+              "if ( responseCode.code !== 200) {",
+              "    // If the request failed no point testing the other calls",
+              "    tests[\"Could not start translation\"] = \"\";",
+              "    ",
+              "    // Stop workflow",
+              "    postman.setNextRequest(null);",
+              "} "
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "//tests[\"Response code is 200\"] = responseCode.code;\n\nif ( responseCode.code !== 200) {\n    // If the request failed no point testing the other calls\n    tests[\"Could not start translation\"] = \"\";\n    \n    // Stop workflow\n    postman.setNextRequest(null);\n} ",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\": \"{{Urn}}\",\n        \"compressedUrn\": true,\n        \"rootFilename\": \"{{RootFileName}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"step\"\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/json; charset=utf-8\n",
+      "pathVariables": [
+        
+      ]
+    },
+    {
+      "id": "c060c414-90fc-4bb7-aa95-d3778d98d7ae",
+      "name": "Authenticate",
+      "url": "https://developer.api.autodesk.com/authentication/v1/authenticate",
+      "description": null,
+      "data": [
+        {
+          "key": "grant_type",
+          "value": "client_credentials",
+          "type": "text",
+          "enabled": true
+        },
+        {
+          "key": "client_id",
+          "value": "{{ConsumerKey}}",
+          "type": "text",
+          "enabled": true
+        },
+        {
+          "key": "client_secret",
+          "value": "{{ConsumerSecret}}",
+          "type": "text",
+          "enabled": true
+        },
+        {
+          "key": "scope",
+          "value": "data:read data:write data:create bucket:read bucket:create",
+          "type": "text",
+          "enabled": true
+        }
+      ],
+      "dataMode": "urlencoded",
+      "headerData": [
+        
+      ],
+      "method": "POST",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "try {",
+              "    var jsonData = JSON.parse(responseBody);",
+              "    postman.setEnvironmentVariable(\"AccessToken\", jsonData.access_token);",
+              "    tests[\"Access token request\"] = true;",
+              "} catch (ex) {",
+              "    tests[\"Access token request\"] = false;",
+              "    ",
+              "     // Stop workflow",
+              "    postman.setNextRequest(null);",
+              "}",
+              ""
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "try {\n    var jsonData = JSON.parse(responseBody);\n    postman.setEnvironmentVariable(\"AccessToken\", jsonData.access_token);\n    tests[\"Access token request\"] = true;\n} catch (ex) {\n    tests[\"Access token request\"] = false;\n    \n     // Stop workflow\n    postman.setNextRequest(null);\n}\n",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "headers": "",
+      "pathVariables": [
+        
+      ]
+    },
+    {
+      "id": "d288f5b8-50cb-4ba5-b773-4fafc38f3254",
+      "name": "Get Thumbnail",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/:urn/thumbnail",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        }
+      ],
+      "method": "GET",
+      "pathVariableData": [
+        {
+          "key": "urn",
+          "value": "{{Urn}}"
+        }
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": null,
+      "folder": null,
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\":\"dXJuOmFkc2sub2JqZWN0czpvcy5vYmplY3Q6YWRhbW5hZ3ktZGV2LXBoaWwvbXluZXdmaWxlLmlwdA==\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [\n        {\n            \"type\": \"svf\",\n            \"views\":[\"2d\", \"3d\"]\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\n",
+      "pathVariables": {
+        "urn": "{{Urn}}"
+      }
+    },
+    {
+      "id": "ff4914dd-74da-4c62-8a62-efb2bcb7d26b",
+      "name": "Post Job obj",
+      "url": "https://developer.api.autodesk.com/modelderivative/v2/designdata/job",
+      "description": null,
+      "data": [
+        
+      ],
+      "dataMode": "raw",
+      "headerData": [
+        {
+          "key": "Authorization",
+          "value": "Bearer {{AccessToken}}"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
+      ],
+      "method": "POST",
+      "pathVariableData": [
+        
+      ],
+      "queryParams": [
+        
+      ],
+      "auth": null,
+      "events": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "//tests[\"Response code is 200\"] = responseCode.code;",
+              "",
+              "if ([200, 201].indexOf(responseCode.code) === -1) {",
+              "    // If the request failed no point testing the other calls",
+              "    tests[\"Could not start translation\"] = false;",
+              "    ",
+              "    // Stop workflow",
+              "    postman.setNextRequest(null);",
+              "} "
+            ]
+          }
+        }
+      ],
+      "folder": null,
+      "preRequestScript": null,
+      "tests": "//tests[\"Response code is 200\"] = responseCode.code;\n\nif ([200, 201].indexOf(responseCode.code) === -1) {\n    // If the request failed no point testing the other calls\n    tests[\"Could not start translation\"] = false;\n    \n    // Stop workflow\n    postman.setNextRequest(null);\n} ",
+      "currentHelper": null,
+      "helperAttributes": null,
+      "collectionId": "f8fe9f2a-7923-4343-a873-c2e35b652c38",
+      "rawModeData": "{\n    \"input\": {\n        \"urn\": \"{{Urn}}\",\n        \"compressedUrn\": true,\n        \"rootFilename\": \"{{RootFileName}}\"\n    },\n    \"output\": {\n        \"destination\": {\n            \"region\": \"us\"\n        },\n        \"formats\": [{\n            \"type\": \"obj\",\n            \"advanced\" : {\n                \"modelGuid\": \"{{ModelGuid}}\",\n                \"objectIds\": [-1]\n            }\n        }]\n    }\n}",
+      "headers": "Authorization: Bearer {{AccessToken}}\nContent-Type: application/json; charset=utf-8\n",
+      "pathVariables": [
+        
+      ]
+    }
+  ]
+}
