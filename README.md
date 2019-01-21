@@ -19,5 +19,5 @@ Autodesk Forge Introductory Workshop - Hong Kong - 2019.01.24
 - ```./samples/forge-api-java-client-master```: Java Code Sample
 - ```./samples/forge-viewer-aspnetcore```: .NET Core Code Sample
 - ```./samples/learn.forge.viewhubmodels-nodejs```: Node.js Code Sample
-- ```./samples/learn.forge.viewhubmodels-net```: .NET Core Code Sample
+- ```./samples/learn.forge.viewhubmodels-net```: .NET Code Sample
 - ```./postman```: Postman Resources ([steps to imports](https://learning.getpostman.com/docs/postman/collections/data_formats#exporting-and-importing-postman-data))
