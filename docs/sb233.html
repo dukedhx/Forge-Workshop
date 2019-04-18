@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Very Basic 3D Viewer</title>
+  <link rel="icon" href="/images/favicon.ico" type="image/x-icon" />
+  <!-- The Viewer JS & CSS-->
+  <link rel="stylesheet" href="https://developer.api.autodesk.com/modelderivative/v2/viewers/style.min.css?v=v6.5" type="text/css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-keyboard@latest/build/css/index.css">
+  <script language="JavaScript" src="https://developer.api.autodesk.com/modelderivative/v2/viewers/viewer3D.min.js?v=v6.5"></script>
+
+<style>
+/*.adsk-viewing-viewer{height:20%!important}*/
+
+</style>
+</head>
+
+<body>
+  <img src='https://viewer-navigation-sample.herokuapp.com/images/forge-logo.png' style="height:auto;width:20%;position:absolute;left:10px;top:10px;z-index:233">
+  <div id="MyViewerDiv" ></div>
+  <div style='padding-top:30%' class="simple-keyboard"></div>
+
+
+
+  <!-- Developer JS -->
+  <script>
+      var myViewerDiv = document.getElementById('MyViewerDiv');
+      var viewer = new Autodesk.Viewing.Private.GuiViewer3D(myViewerDiv);
+      var options = {
+          'env' : 'Local'
+      };
+      Autodesk.Viewing.Initializer(options, function() {
+
+
+
+              viewer.start();
+              viewer.loadExtension('Autodesk.PDF').then( () => {
+                viewer.loadModel('2018035DCD1008A0.pdf', viewer)
+              })
+      });
+
+
+
+
+  </script>
+</body>
+
+</html>
