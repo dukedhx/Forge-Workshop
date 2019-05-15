@@ -1,0 +1,62 @@
+{
+  "name": "F2D Manifest",
+  "manifestversion": 1,
+  "f2dversion": "1.0.1",
+  "assets": [
+    {
+      "id": "objects_attrs.json",
+      "type": "Autodesk.CloudPlatform.PropertyAttributes",
+      "URI": "objects_attrs.json.gz",
+      "size": 984,
+      "usize": 5937,
+      "mime": "application/x-gzip"
+    },
+    {
+      "id": "objects_ids.json",
+      "type": "Autodesk.CloudPlatform.PropertyIDs",
+      "URI": "objects_ids.json.gz",
+      "size": 10268,
+      "usize": 38906,
+      "mime": "application/x-gzip"
+    },
+    {
+      "id": "objects_vals.json",
+      "type": "Autodesk.CloudPlatform.PropertyValues",
+      "URI": "objects_vals.json.gz",
+      "size": 83528,
+      "usize": 365841,
+      "mime": "application/x-gzip"
+    },
+    {
+      "id": "objects_avs.json",
+      "type": "Autodesk.CloudPlatform.PropertyAVs",
+      "URI": "objects_avs.json.gz",
+      "size": 105753,
+      "usize": 861170,
+      "mime": "application/x-gzip"
+    },
+    {
+      "id": "objects_offs.json",
+      "type": "Autodesk.CloudPlatform.PropertyOffsets",
+      "URI": "objects_offs.json.gz",
+      "size": 11699,
+      "usize": 26803,
+      "mime": "application/x-gzip"
+    },
+    {
+      "URI": "primaryGraphics.f2d",
+      "type": "Autodesk.CloudPlatform.F2D",
+      "id": "primaryGraphics.f2d",
+      "mime": "application/autodesk-f2d",
+      "size": 10390034
+    },
+    {
+      "URI": "metadata.json.gz",
+      "type": "Autodesk.CloudPlatform.ViewingMetadata",
+      "id": "metadata.json.gz",
+      "mime": "application/json",
+      "size": 1684,
+      "usize": 6401
+    }
+  ]
+}

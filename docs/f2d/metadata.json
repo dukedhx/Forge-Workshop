@@ -1,0 +1,339 @@
+{
+  "title": "Model",
+  "sheet_order": 1,
+  "sheet_id": "Model",
+  "page_dimensions": {
+    "page_width": 210.0,
+    "page_height": 297.0,
+    "page_units": "mm",
+    "model_units": "",
+    "source_to_logical_xform": [
+      1574.804761904762,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      1574.804761904762,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.99999999999999989,
+      0.0,
+      -0.50000000001339928,
+      -0.50714285714589757,
+      0.0,
+      0.99999999999999989
+    ],
+    "logical_offset_x": -0.50000000001339928,
+    "logical_offset_y": -0.50714285714589757,
+    "logical_width": 330709.0,
+    "logical_height": 467717.014286,
+    "plot_width": 1482835.0,
+    "plot_height": 2097152.0,
+    "hide_paper": true
+  },
+  "views": [
+    {
+      "name": "Model",
+      "logical_bbox": [
+        -0.50000000001339928,
+        -0.50714285714589757,
+        330708.5,
+        467716.50714314287
+      ]
+    }
+  ],
+  "layer_states": [
+    {
+      "name": "Initial",
+      "visible_layers": [
+        "0",
+        "STAIR",
+        "wall",
+        "PUB_TEXT",
+        "WINDOW",
+        "LVTRY",
+        "PUB_DIM",
+        "WINDOW_TEXT",
+        "家具",
+        "家俱",
+        "TEXT",
+        "内设",
+        "Defpoints",
+        "AXIS",
+        "AXIS_TEXT",
+        "OTHER",
+        "结_柱",
+        "结_填充_细线",
+        "卫生间",
+        "干挂石材层",
+        "G",
+        "1-消火栓",
+        "NT-TF-SB",
+        "W_SH",
+        "留孔",
+        "施工范围",
+        "1-门",
+        "WC",
+        "jj",
+        "装饰家具",
+        "DIM_SYMB",
+        "公共图框",
+        "Y设备",
+        "Y风口",
+        "Y洁具",
+        "PUB_TITLE",
+        "龙骨墙",
+        "手术室设计",
+        "$RECOVER_100712230110-15",
+        "$RECOVER_100712230110-16",
+        "器械柜",
+        "手术室隔墙",
+        "PIPE-给水",
+        "PIPE-热给水",
+        "TEXT_热回水",
+        "TWT_TEXT",
+        "VPIPE-给水",
+        "VPIPE-热给水",
+        "VPIPE-热回水",
+        "1-g",
+        "1－自喷管",
+        "1-排水管",
+        "SS",
+        "建-墙体",
+        "建-洁具",
+        "1-给水管",
+        "建-文字",
+        "建-门窗",
+        "建-门窗-编号"
+      ]
+    }
+  ],
+  "layers": {
+    "1": {
+      "name": "0"
+    },
+    "2": {
+      "name": "STAIR"
+    },
+    "3": {
+      "name": "wall"
+    },
+    "4": {
+      "name": "PUB_TEXT"
+    },
+    "5": {
+      "name": "WINDOW"
+    },
+    "6": {
+      "name": "LVTRY"
+    },
+    "7": {
+      "name": "PUB_DIM"
+    },
+    "8": {
+      "name": "WINDOW_TEXT"
+    },
+    "9": {
+      "name": "家具"
+    },
+    "10": {
+      "name": "家俱"
+    },
+    "11": {
+      "name": "TEXT"
+    },
+    "12": {
+      "name": "内设"
+    },
+    "13": {
+      "name": "Defpoints"
+    },
+    "14": {
+      "name": "AXIS"
+    },
+    "15": {
+      "name": "AXIS_TEXT"
+    },
+    "16": {
+      "name": "OTHER"
+    },
+    "17": {
+      "name": "结_柱"
+    },
+    "18": {
+      "name": "结_填充_细线"
+    },
+    "19": {
+      "name": "卫生间"
+    },
+    "20": {
+      "name": "干挂石材层"
+    },
+    "21": {
+      "name": "G"
+    },
+    "22": {
+      "name": "1-消火栓"
+    },
+    "23": {
+      "name": "NT-TF-SB"
+    },
+    "24": {
+      "name": "W_SH"
+    },
+    "25": {
+      "name": "留孔"
+    },
+    "26": {
+      "name": "施工范围"
+    },
+    "27": {
+      "name": "1-门"
+    },
+    "28": {
+      "name": "WC"
+    },
+    "29": {
+      "name": "jj"
+    },
+    "30": {
+      "name": "装饰家具"
+    },
+    "31": {
+      "name": "DIM_SYMB"
+    },
+    "32": {
+      "name": "公共图框"
+    },
+    "33": {
+      "name": "Y设备"
+    },
+    "34": {
+      "name": "Y风口"
+    },
+    "35": {
+      "name": "Y洁具"
+    },
+    "36": {
+      "name": "PUB_TITLE"
+    },
+    "37": {
+      "name": "龙骨墙"
+    },
+    "38": {
+      "name": "手术室设计"
+    },
+    "39": {
+      "name": "$RECOVER_100712230110-15"
+    },
+    "40": {
+      "name": "$RECOVER_100712230110-16"
+    },
+    "41": {
+      "name": "器械柜"
+    },
+    "42": {
+      "name": "手术室隔墙"
+    },
+    "43": {
+      "name": "PIPE-给水"
+    },
+    "44": {
+      "name": "PIPE-热给水"
+    },
+    "45": {
+      "name": "TEXT_热回水"
+    },
+    "46": {
+      "name": "TWT_TEXT"
+    },
+    "47": {
+      "name": "VPIPE-给水"
+    },
+    "48": {
+      "name": "VPIPE-热给水"
+    },
+    "49": {
+      "name": "VPIPE-热回水"
+    },
+    "50": {
+      "name": "1-g"
+    },
+    "51": {
+      "name": "1－自喷管"
+    },
+    "52": {
+      "name": "1-排水管"
+    },
+    "53": {
+      "name": "SS"
+    },
+    "54": {
+      "name": "建-墙体"
+    },
+    "55": {
+      "name": "建-洁具"
+    },
+    "56": {
+      "name": "1-给水管"
+    },
+    "57": {
+      "name": "建-文字"
+    },
+    "58": {
+      "name": "建-门窗"
+    },
+    "59": {
+      "name": "建-门窗-编号"
+    }
+  },
+  "sheet_properties": {
+    "": {
+      "Author": "Administrator",
+      "Creation Time": "2018-11-13T09:01:03.000Z",
+      "Modification Time": "2018-11-13T09:01:03.000Z"
+    },
+    "AutoCAD Drawing": {
+      "Author": "",
+      "Comments": "",
+      "Copyright": "",
+      "Creation Time": "2018-11-13T08:57:39.000Z",
+      "Creator": "AutoCAD 2018 - English 2018 (22.0s(LMS Tech))",
+      "Description": "",
+      "File Name": "给排水.dwg",
+      "Keywords": "",
+      "Layout Name": "Model",
+      "Modification Time": "2018-11-13T08:58:24.000Z",
+      "Subject": "",
+      "Title": "Model"
+    }
+  },
+  "geom_metrics": {
+    "arcs": 0,
+    "circles": 0,
+    "circ_arcs": 0,
+    "viewports": 2,
+    "clips": 1,
+    "colors": 1059,
+    "db_ids": 9015,
+    "dots": 0,
+    "fills": 0,
+    "layers": 938,
+    "line_caps": 0,
+    "line_joins": 0,
+    "line_patterns": 0,
+    "line_pat_refs": 0,
+    "plines": 1334191,
+    "pline_points": 2924571,
+    "line_weights": 1,
+    "links": 0,
+    "miters": 0,
+    "ptris": 4556,
+    "ptri_indices": 72279,
+    "ptri_points": 32793,
+    "rasters": 0,
+    "texts": 306
+  }
+}
